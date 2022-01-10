@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Team-Mapper">
+
+
+		<sql id="search">
+		<if test="searchType == 't'.toString()">
+			and team_title like '%'||#{keyword}||'%'			
+		</if>
+	</sql>
+	
+	
+	
+	
+	<select id="selectSearchTeamList" resultType="team">
+		select
+		*
+		from
+		team
+		where team_num is not null
+		<include refid="search" />
+		
+		order by team_regDate desc
+	</select>
+	
+	<select id="selectSearchNoticeListCount" resultType="int">
+		select 
+		count(*)
+		from
+		notice
+		where notice_num is not null
+		<include refid="search" />
+		
+		order by notice_regdate desc
+	</select>
+	
+	<select id="selectNoticeByNum" resultType="notice">
+		select * 
+		from notice
+		where notice_num = #{notice_num}
+	</select>
+	
+	<update id="insertNotice" parameterType="notice">
+		insert into notice(notice_num,notice_title,notice_content,notice_writer,notice_regdate)
+		values
+		(#{notice_num},
+		#{notice_title},
+		#{notice_content},
+		#{notice_writer},
+		to_char(sysdate, 'YYYY-MM-DD'))
+	</update>
+	
+	<select id="selectNoticeSeqNext" resultType="int">
+		select notice_seq.nextval as mem_num from dual
+	</select>
+	
+	<update id="increaseViewCnt" parameterType="int">
+		update
+		notice
+		set
+		notice_view=notice_view+1
+		where notice_num = #{notice_num}
+	</update>
+	
+	<update id="updateNotice" parameterType="notice">
+		update
+		notice
+		set
+		notice_title=#{notice_title}, notice_content = #{notice_content}
+		where
+		notice_num = #{notice_num}
+	</update>
+	
+	<update id="deleteNotice" parameterType="int">
+		delete
+		from
+		notice
+		where notice_num = #{notice_num}
+	</update>
+</mapper>

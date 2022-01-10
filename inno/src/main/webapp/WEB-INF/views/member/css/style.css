@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; */
+
+
+/* 초기화 */
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+ul,li{
+  list-style: none;
+}
+/* body */
+body{
+  font-family: 'Noto Sans KR', sans-serif;
+}
+/* header */
+header{
+  width: 85.41vw;
+  height: 10.18vh;
+}
+header #headerRightCon{
+  width: 10.625vw;
+  height: 10.18vh;
+}
+header #headerRequestMenu{
+  transition: 0.5s;
+  text-shadow: 1px 1px 2px #e9e8e6;
+}
+header #headerRequestMenu:hover{
+  color: #FFD800;
+}
+/* section */
+section{
+  width: 53.33vw;
+  height: 62.7vh;
+}
+section>div:nth-child(1){
+  margin-top: 8.88vh;
+}
+
+/* section input 부분 */
+section #inputContainer{
+  width: 53.33vw;
+  height: 21.29vh;
+}
+section #inputContainer input{
+  width: 24.5vw;
+  height: 6.8vh;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+section #inputContainer input::placeholder{
+  font-size: 18px;
+  color: #999;
+}
+section #inputContainer input:focus{
+  outline: none;
+}
+section #inputIdWraper{
+  width: 24.5vw;
+  height: 6.8vh;
+  border-bottom: 1px solid #ccc;
+}
+section #inputIdWraper input{
+  width: 18.6vw;
+  height: 6.8vh;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+section #inputIdWraper p{
+  width: 5.93vw;
+  line-height: 3.51vh;
+  border-radius: 20px;
+  border: #FFD800 1px solid;
+}
+section #signInButtonWraper{
+  width: 23.64vw;
+  height: 6.4vh;
+  margin-top: 8.51vh;
+}
+section #signInButtonWraper>div{
+  width: 11.45vw;
+  height: 6.4vh;
+  background-color: #ccc;
+  border-radius: 35px;
+}
+section #signInButtonWraper>div:nth-child(2){
+  background-color: #FFD800;
+}
+/* 정리 */
+.cur-pointer{
+  cursor: pointer;
+}
+
+.main-color-yellow{
+  color: #FFD800;
+}
+.color-red{
+  color: #ff3333;
+}
+.main-bgcolor-yellow{
+  background-color: #FFD800;
+}
+.back-co-aqu{
+  background-color: aqua;
+}
+
+.ma-0-auto{
+  margin: 0 auto;
+}
+
+.posi-re{
+  position: relative;
+}
+.posi-ab{
+  position: absolute;
+}
+.posi-ab-00{
+  position: absolute;
+  top:0;
+  left: 0;
+}
+.display-none{
+  display: none;
+}
+.flex-sb{
+  display: flex;
+  justify-content: space-between;
+}
+.flex-sa{
+  display: flex;
+  justify-content: space-around;
+}
+.flex-cen{
+  display: flex;
+  justify-content: center;
+}
+.flex-cen-cen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-str{
+  display: flex;
+  justify-content: start;
+}
+.flex-end{
+  display: flex;
+  justify-content: end;
+}
+.flex-column{
+  flex-direction: column;
+}
+.align-items-cen{
+  align-items: center;
+}
+.ali-items-end{
+  align-items: flex-end;
+}
+.txt-center{
+  text-align: center;
+}
+.font-16px{
+  font-size: 1rem;
+}
+.font-18px{
+  font-size: 1.125rem;
+}
+.font-20px{
+  font-size: 1.25rem;
+}
+.font-22px{
+  font-size: 1.375rem;
+}
+.font-24px{
+  font-size: 1.5rem;
+}
+.font-26px{
+  font-size: 1.625rem;
+}
+.font-28px{
+  font-size: 1.75rem;
+}
+.font-32px{
+  font-size: 2rem;
+}
+.font-36px{
+  font-size: 2.25rem;
+}
+.font-40px{
+  font-size: 2.5rem;
+}
+.font-50px{
+  font-size: 3.125rem;
+}
+.font-54px{
+  font-size: 3.375rem;
+}
+.font-60px{
+  font-size: 3.75rem;
+}
+.font-66px{
+  font-size: 4.125rem;
+}
+.font-wei-100{
+  font-weight: 100;
+}
+.font-wei-300{
+  font-weight: 300;
+}
+.font-bold{
+  font-weight: bold;
+}
+.margin-bottom-2vh{
+  margin-bottom: 2vh;
+}
+.margin-bottom-12px{
+  margin-bottom: 12px;
+}
+.margin-bottom-44px{
+  margin-bottom: 44px;
+}
+.margin-left-30px{
+  margin-left: 30px;
+}

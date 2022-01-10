@@ -1,0 +1,377 @@
+/*  폰트 적용 */
+@import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+html {
+    font-family: "Noto Sans KR", sans-serif;
+}
+
+/* 노말라이즈 */
+body, ul, li {
+    margin:0;
+    padding:0;
+    list-style:none;
+    box-sizing: border-box;
+}
+
+a {
+    color:inherit;
+    text-decoration:none;
+    display:block;
+}
+
+/* 라이브러리 */
+.con {
+    margin:0 auto;
+}
+
+.img-box > img {
+    width:100%;
+    display:block;
+}
+
+.row::after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+.cell {
+    float:left;
+    box-sizing:border-box;
+}
+
+.cell-right {
+    float:right;
+    box-sizing:border-box;
+}
+
+.margin-0-auto {
+    margin:0 auto;
+}
+
+.block {
+    display:block;
+}
+
+.inline-block {
+    display:inline-block;
+}
+
+.text-align-center {
+    text-align:center;
+}
+
+.line-height-0-ch-only {
+    line-height:0;
+}
+
+.line-height-0-ch-only > * {
+    line-height:normal;
+}
+
+.relative {
+    position:relative;
+}
+
+.absolute-left {
+    position:absolute;
+    left:0;
+}
+
+.absolute-right {
+    position:absolute;
+    right:0;
+}
+
+.absolute-middle {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+/* 커스텀 */
+
+/* 고정형 레이아웃 용 */
+.con {
+    width:1280px;
+}
+
+.con-min-width {
+    min-width:1180px;
+}
+.wrap {
+    width:100%;
+    box-sizing:border-box;
+    margin:0 auto;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+span {
+    text-align: center;
+    font-size:23px;
+}
+/* -------------------------------------------------------- */
+
+
+/*----------------------햄버거버튼-------------------------- */
+.menu-trigger,
+.menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+}
+
+.menu-trigger {
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+.menu-trigger span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    border-radius: 4px;
+}
+
+.menu-trigger span:nth-of-type(1) {
+    top: 0;
+}
+
+.menu-trigger span:nth-of-type(2) {
+    top: 13px;
+}
+
+.menu-trigger span:nth-of-type(3) {
+    bottom: 0;
+}
+
+
+.menu-trigger span:nth-of-type(1) {
+    -webkit-animation : menu-bar-01 .75s forwards;
+    animation : menu-bar-01 .75s forwards;
+}
+@-webkit-keyframes menu-bar-01 {
+    0% {
+        -webkit-transform : translateY(13px) rotate(45deg);
+    }
+    50% {
+        -webkit-transform : translateY(13px) rotate(0);
+    }
+    100% {
+        -webkit-transform : translateY(0) rotate(0);
+    }
+}
+@keyframes menu-bar-01 {
+    0% {
+        transform : translateY(13px) rotate(45deg);
+    }
+    50% {
+        transform : translateY(13px) rotate(0);
+    }
+    100% {
+        transform : translateY(0) rotate(0);
+    }
+}
+.menu-trigger span:nth-of-type(2) {
+    transition : all .25s .25s;
+    opacity : 1;
+}
+.menu-trigger span:nth-of-type(3) {
+    -webkit-animation : menu-bar-02 .75s forwards;
+    animation : menu-bar-02 .75s forwards;
+}
+@-webkit-keyframes menu-bar-02 {
+    0% {
+        -webkit-transform : translateY(-13px) rotate(-45deg);
+    }
+    50% {
+        -webkit-transform : translateY(-13px) rotate(0);
+    }
+    100% {
+        -webkit-transform : translateY(0) rotate(0);
+    }
+}
+@keyframes menu-bar-02 {
+    0% {
+        transform : translateY(-13px) rotate(-45deg);
+    }
+    50% {
+        transform : translateY(-13px) rotate(0);
+    }
+    100% {
+        transform : translateY(0) rotate(0);
+    }
+}
+.menu-trigger.active span:nth-of-type(1) {
+    -webkit-animation : active-menu-bar-01 .75s forwards;
+    animation : active-menu-bar-01 .75s forwards;
+}
+@-webkit-keyframes active-menu-bar-01 {
+    0% {
+        -webkit-transform : translateY(0) rotate(0);
+    }
+    50% {
+        -webkit-transform : translateY(13px) rotate(0);
+    }
+    100% {
+        -webkit-transform : translateY(13px) rotate(45deg);
+    }
+}
+@keyframes active-menu-bar-01 {
+    0% {
+        transform : translateY(0) rotate(0);
+    }
+    50% {
+        transform : translateY(13px) rotate(0);
+    }
+    100% {
+        transform : translateY(13px) rotate(45deg);
+    }
+}
+.menu-trigger.active span:nth-of-type(2) {
+    opacity : 0;
+}
+.menu-trigger.active span:nth-of-type(3) {
+    -webkit-animation : active-menu-bar-02 .75s forwards;
+    animation : active-menu-bar-02 .75s forwards;
+}
+@-webkit-keyframes active-menu-bar-02 {
+    0% {
+        -webkit-transform : translateY(0) rotate(0);
+    }
+    50% {
+        -webkit-transform : translateY(-13px) rotate(0);
+    }
+    100% {
+        -webkit-transform : translateY(-13px) rotate(-45deg);
+    }
+}
+@keyframes active-menu-bar-02 {
+    0% {
+        transform : translateY(0) rotate(0);
+    }
+    50% {
+        transform : translateY(-13px) rotate(0);
+    }
+    100% {
+        transform : translateY(-13px) rotate(-45deg);
+    }
+}
+/* -------------------------------------------------------- */
+div {
+    box-sizing: border-box;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+.wrap {
+    max-width: 1280px;
+}
+
+.login_main {
+    padding: 30px 0;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    
+}
+.logo {
+    float: left;
+}
+
+.menu {
+    float: right;
+}
+.menu > a {
+    float: left;
+}
+
+.project {
+    margin-right: 40px;
+    color: #707070;
+    font-size: 1.1rem;
+}
+
+.content {
+    width: 50%;
+    margin: 0 auto;
+}
+.tt {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: #FFD800;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+.log_box {
+    text-align: center;
+}
+.log_box > form > input {
+    width: 430px;
+    height: 35px;
+    border: none;
+    margin-bottom: 34px;
+    border-bottom: 1px solid #CCCCCC;
+    color: #999999;
+    padding: 0 26px;
+    font-size: 20px;
+}
+
+.log_bt {
+    width: 535px;
+    height: 70px;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 14px;
+}
+.log_bt > a {
+    width: 100%;
+    height: 100%;
+    background: #FFD800;
+    box-sizing: border-box;
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 16px;
+}
+
+.log_etc {
+    width: 535px;
+    margin: 0 auto;
+    color: #333333;
+    font-size: 1rem;
+}
+
+.find_id {
+    width: 50%;
+    float: left;
+    text-align: left;
+}
+
+.reg {
+    width: 50%;
+    text-align: right;
+    float: right;
+}
+
+input:focus {
+    outline:none;
+}
+
+input::placeholder{
+    font-size: 20px;
+}

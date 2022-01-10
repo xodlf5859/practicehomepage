@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- boardImgPath -->
+	<bean id="imgPath" class="java.lang.String">
+		<constructor-arg value="${summernote.img}" />
+	</bean>
+
+
+
+	<!-- DAO	 -->
+	<bean id="memberDAO" 
+		  class="com.spring.inno.dao.MemberDAOImpl"
+	      p:session-ref="sqlSession" />
+	<bean id="noticeDAO" 
+		  class="com.spring.inno.dao.NoticeDAOImpl"
+	      p:session-ref="sqlSession" />
+	
+	<bean id="portfolioDAO" 
+		  class="com.spring.inno.dao.PortfolioDAOImpl"
+	      p:session-ref="sqlSession" />
+
+	<bean id="contactDAO" 
+		  class="com.spring.inno.dao.ContactDAOImpl"
+	      p:session-ref="sqlSession" />
+	
+	
+	<!-- service  -->
+	<bean id="memberService"
+		  class="com.spring.inno.service.MemberServiceImpl"
+		  p:memberDAO-ref="memberDAO"
+		  />
+	<bean id="NoticeService"
+		  class="com.spring.inno.service.NoticeServiceImpl"
+		  p:noticeDAO-ref="noticeDAO"
+		  />
+	<bean id="portfolioService"
+		  class="com.spring.inno.service.PortfolioServiceImpl"
+		  p:portfolioDAO-ref="portfolioDAO"
+		  />
+	<bean id="contactService"
+		  class="com.spring.inno.service.ContactServiceImpl"
+		  p:contactDAO-ref="contactDAO"
+		  />
+
+
+
+</beans>
+
+
+
+
+
+
+

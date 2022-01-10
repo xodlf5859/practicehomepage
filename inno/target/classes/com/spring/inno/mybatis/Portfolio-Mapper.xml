@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Portfolio-Mapper">
+
+
+		<sql id="search">
+		<if test="searchType == 't'.toString()">
+			and por_title like '%'||#{keyword}||'%'			
+		</if>
+	</sql>
+	
+	
+	
+	
+	<select id="selectSearchPortfolioList" resultType="portfolio">
+		select
+		*
+		from
+		portfolio
+		where por_num is not null
+		<include refid="search" />
+		
+		order by por_regDate asc
+	</select>
+	
+	<select id="selectSearchPortfolioListCount" resultType="int">
+		select 
+		count(*)
+		from
+		portfolio
+		where por_num is not null
+		<include refid="search" />
+		
+		order by por_regdate asc
+	</select>
+	
+	<select id="selectPortfolioByNum" resultType="portfolio">
+		select * 
+		from portfolio
+		where por_num = #{por_num}
+	</select>
+	
+	<update id="insertPortfolio" parameterType="portfolio">
+		insert into portfolio(por_num,por_title,por_content,por_writer,por_regdate,por_subtitle,por_category)
+		values
+		(#{por_num},
+		#{por_title},
+		#{por_content},
+		#{por_writer},
+		to_char(sysdate, 'YYYY-MM-DD'),
+		#{por_subtitle},
+		#{por_category}
+		)
+	</update>
+	
+	<select id="selectPortfolioSeqNext" resultType="int">
+		select portfolio_seq.nextval as por_num from dual
+	</select>
+	
+	<update id="increaseViewCnt" parameterType="int">
+		update
+		portfolio
+		set
+		por_view=por_view+1
+		where por_num = #{por_num}
+	</update>
+	
+	<update id="updatePortfolio" parameterType="portfolio">
+		update
+		portfolio
+		set
+		por_title=#{por_title}, por_content = #{por_content},por_subtitle=#{por_subtitle},por_category=#{por_category}
+		where
+		por_num = #{por_num}
+	</update>
+	
+	<update id="deletePortfolio" parameterType="int">
+		delete
+		from
+		portfolio
+		where por_num = #{por_num}
+	</update>
+</mapper>

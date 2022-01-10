@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Member-Mapper">
+	
+	<select id="loginMember" resultType="member">
+		select
+		   *
+		from 
+			member
+		where
+			mem_mail = #{mem_mail}
+		and 
+		    mem_pw = #{mem_pwd}
+			
+	</select>
+	
+	<insert id="memberRegist" parameterType="member">
+		insert 
+		into 
+		member
+		(mem_num,mem_mail,mem_pw,mem_name,mem_photo,mem_phone,mem_id)
+		values
+		(#{mem_num},#{mem_mail},#{mem_pwd},#{mem_name},#{mem_photo},#{mem_phone},#{mem_id})
+	</insert>
+	
+	<select id="selectMemberById" resultType="member">
+		select mem_id from member where mem_id = #{mem_id}
+	</select>
+	
+	<select id="selectMemberNext" resultType="int">
+		select member_seq.nextval as mem_num from dual
+	</select>
+</mapper>
